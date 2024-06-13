@@ -1,5 +1,5 @@
 # Welcome to the EASX Community
-"EASX - the secure digital exchange service for Swiss pension funds and insurances"
+"EASX - the secure digital exchange service for Swiss pension funds and insurances" brought to you by [eBVG](https://www.ebvg.ch/)
 
 This is where a lively exchange between all participants of the EASX initiative takes place. You will find useful resources, discussions and information on EASX in this repository.
 
@@ -19,4 +19,4 @@ Use the [Discussions Board](https://github.com/easx-ch/easx/discussions) to ask 
 
 [EAS Client Docker](https://hub.docker.com/r/easx/client) - EAS Client docker image on Docker Hub
 
-
+[eBVG](https://www.ebvg.ch/) - eBVG Verein
