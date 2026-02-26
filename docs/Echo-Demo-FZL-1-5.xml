@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UEBERTRAGUNG xmlns="http://exchange.aeis.ch/xsd/FZL-1.5"
+    xmlns:zah="http://www.chaeis.ch/xsd/Zahlungsverkehr-1.1">
+    <DATUM>2022-02-04</DATUM>
+    <IDENT>e562d170-a255-4624-876c-855637e4e847</IDENT>
+    <BVG_KONFORM>true</BVG_KONFORM>
+    <ABSENDER>
+        <NAME>Versicherung</NAME>
+        <KONTAKT_PERSON>
+            <GESCHLECHT>maennlich</GESCHLECHT>
+            <TITEL>Dr.</TITEL>
+            <VORNAME>Max</VORNAME>
+            <NACHNAME>Meier</NACHNAME>
+            <KORRESPONDENZ_SPRACHE>de</KORRESPONDENZ_SPRACHE>
+            <TELEKOM_NUMMER art="TELEFON">079/1234567
+            </TELEKOM_NUMMER>
+            <EMAIL>meier@test.com</EMAIL>
+        </KONTAKT_PERSON>
+        <STRASSE>Viktoria Platz</STRASSE>
+        <PLZ>3000</PLZ>
+        <ORT>Bern</ORT>
+        <TELEKOM_NUMMER art="TELEFON">031/12345678</TELEKOM_NUMMER>
+    </ABSENDER>
+    <EMPFAENGER>
+        <UID>CHE000000000</UID>
+        <NAME>EASX Echo Service</NAME>
+        <STRASSE>Testweg 13</STRASSE>
+        <PLZ>9999</PLZ>
+        <ORT>Musterwil</ORT>
+    </EMPFAENGER>
+    <FZL_MIT_EINZELZAHLUNG>
+        <FZL>
+            <PERSON_AHV>
+                <GESCHLECHT>maennlich</GESCHLECHT>
+                <VORNAME>Max</VORNAME>
+                <NACHNAME>Mustermann</NACHNAME>
+                <GEBURTSDATUM>
+                    <DATUM>1930-01-01</DATUM>
+                </GEBURTSDATUM>
+                <AHV_NUMMER>001.11.000.000</AHV_NUMMER>
+                <INVALIDITAET>
+                    <GRAD>0</GRAD>
+                </INVALIDITAET>
+                <GESUNDHEITS_VORBEHALT>
+                    <KEINER />
+                </GESUNDHEITS_VORBEHALT>
+                <ZIVILSTAND>
+                    <VERHEIRATET>
+                        <DATUM>2001-01-01</DATUM>
+                    </VERHEIRATET>
+                </ZIVILSTAND>
+                <KORRESPONDENZ_SPRACHE>de</KORRESPONDENZ_SPRACHE>
+            </PERSON_AHV>
+            <LEISTUNGS_DATEN>
+                <UEBERTRAGUNGSGRUND>
+                    <AUSTRITT>2001-01-01</AUSTRITT>
+                </UEBERTRAGUNGSGRUND>
+                <FREIZUEGIGKEITSLEISTUNG>1000.10
+                </FREIZUEGIGKEITSLEISTUNG>
+                <ANTEIL_BVG>
+                    <BETRAG>0.00</BETRAG>
+                </ANTEIL_BVG>
+                <ERSTMALS_MITGETEILTE_FZL>
+                    <BETRAG>1000</BETRAG>
+                    <DATUM>1970-01-01</DATUM>
+                </ERSTMALS_MITGETEILTE_FZL>
+                <BEI_ALTER_50>
+                    <BETRAG>1000</BETRAG>
+                </BEI_ALTER_50>
+                <BEI_HEIRAT>
+                    <UNBEKANNT />
+                </BEI_HEIRAT>
+                <SCHEIDUNG datenVollstaendig="true">
+                    <KEINE />
+                </SCHEIDUNG>
+                <WEF datenVollstaendig="true">
+                    <VORBEZUG>
+                        <BETRAG>1000</BETRAG>
+                        <BETRAG_BVG>
+                            <BETRAG>500</BETRAG>
+                        </BETRAG_BVG>
+                        <DATUM>1970-01-01</DATUM>
+                        <FZL_BEI_WEF>
+                            <UNBEKANNT />
+                        </FZL_BEI_WEF>
+                    </VORBEZUG>
+                    <VORBEZUG>
+                        <BETRAG>1000</BETRAG>
+                        <BETRAG_BVG>
+                            <UNBEKANNT />
+                        </BETRAG_BVG>
+                        <DATUM>1970-01-01</DATUM>
+                        <FZL_BEI_WEF>
+                            <BETRAG>500.0</BETRAG>
+                            <BETRAG_BVG>
+                                <BETRAG>400.0</BETRAG>
+                            </BETRAG_BVG>
+                        </FZL_BEI_WEF>
+                    </VORBEZUG>
+                    <RUECKZAHLUNG>
+                        <BETRAG>500</BETRAG>
+                        <BETRAG_BVG>
+                            <BETRAG>500</BETRAG>
+                        </BETRAG_BVG>
+                        <DATUM>1980-01-01</DATUM>
+                    </RUECKZAHLUNG>
+                </WEF>
+                <EINKAEUFE datenVollstaendig="true">
+                    <EINKAUF>
+                        <BETRAG>1000</BETRAG>
+                        <DATUM>1970-01-01</DATUM>
+                        <ZINS>
+                            <BETRAG>100.00</BETRAG>
+                        </ZINS>
+                    </EINKAUF>
+                    <EINKAUF>
+                        <BETRAG>1000</BETRAG>
+                        <DATUM>1970-01-01</DATUM>
+                        <ZINS>
+                            <UNBEKANNT />
+                        </ZINS>
+                    </EINKAUF>
+                </EINKAEUFE>
+                <VERPFAENDUNGEN datenVollstaendig="true">
+                    <SUKZESSIV_VERPFAENDUNG>
+                        <PFANDGLAEUBIGER>
+                            <PERSON>
+                                <GESCHLECHT>maennlich</GESCHLECHT>
+                                <NACHNAME>Rohrbach</NACHNAME>
+                                <GEBURTSDATUM>
+                                    <DATUM_UNBEKANNT />
+                                </GEBURTSDATUM>
+                                <ORT>Zürich</ORT>
+                            </PERSON>
+                        </PFANDGLAEUBIGER>
+                        <DATUM>1970-01-01</DATUM>
+                    </SUKZESSIV_VERPFAENDUNG>
+                </VERPFAENDUNGEN>
+                <REFERENZ_ABSENDER>
+                    <ANSCHLUSSNUMMER>AnschlussNummer</ANSCHLUSSNUMMER>
+                </REFERENZ_ABSENDER>
+                <REFERENZ_EMPFAENGER>
+                    <POLICENNUMMER>PolicenNummer</POLICENNUMMER>
+                </REFERENZ_EMPFAENGER>
+                <INKASSOHILFE_MELDUNGEN>
+                  <INKASSOHILFE_MELDUNG>            
+                    <MELDESTELLE>
+                        <NAME>Name</NAME>
+                        <ORT>Zürich</ORT>
+                    </MELDESTELLE>
+                    <DATUM>2000-01-01</DATUM>
+                  </INKASSOHILFE_MELDUNG>
+                  <INKASSOHILFE_MELDUNG>            
+                    <MELDESTELLE>
+                        <NAME>Name2</NAME>
+                        <ORT>Zürich2</ORT>
+                        <LAND>DE</LAND>
+                    </MELDESTELLE>
+                    <DATUM>2000-01-01</DATUM>
+                  </INKASSOHILFE_MELDUNG>
+                </INKASSOHILFE_MELDUNGEN>
+            </LEISTUNGS_DATEN>
+            <zah:ZAHLUNG>
+                <zah:IBAN>CH00 1234 1ABC DEFG 1234 2</zah:IBAN>
+                <zah:BUCHUNGSDATUM>2010-01-01</zah:BUCHUNGSDATUM>
+                <zah:VALUTADATUM>2010-01-02</zah:VALUTADATUM>
+                <zah:BETRAG>1000.10</zah:BETRAG>
+            </zah:ZAHLUNG>
+        </FZL>
+        <FZL>
+            <PERSON_AHV>
+                <GESCHLECHT>weiblich</GESCHLECHT>
+                <VORNAME>Eva</VORNAME>
+                <NACHNAME>Musterfrau</NACHNAME>
+                <GEBURTSDATUM>
+                    <DATUM>1975-01-01</DATUM>
+                </GEBURTSDATUM>
+                <AHV_NUMMER>001.00.000.000</AHV_NUMMER>
+                <INVALIDITAET>
+                    <GRAD>0</GRAD>
+                </INVALIDITAET>
+                <GESUNDHEITS_VORBEHALT>
+                    <BEGINN>
+                        <DATUM>2008-01-01</DATUM>
+                    </BEGINN>
+                    <ENDE>
+                        <DATUM>2009-01-01</DATUM>
+                    </ENDE>
+                </GESUNDHEITS_VORBEHALT>
+                <ZIVILSTAND>
+                    <LEDIG />
+                </ZIVILSTAND>
+                <KORRESPONDENZ_SPRACHE>de</KORRESPONDENZ_SPRACHE>
+            </PERSON_AHV>
+            <LEISTUNGS_DATEN>
+                <UEBERTRAGUNGSGRUND>
+                    <FZL_AUS_SCHEIDUNG>
+                        <DATUM>2010-01-01</DATUM>
+                        <EX_PARTNER>
+                            <GESCHLECHT>maennlich</GESCHLECHT>
+                            <VORNAME>Max</VORNAME>
+                            <NACHNAME>Meier</NACHNAME>
+                            <GEBURTSDATUM>
+                                <DATUM_UNBEKANNT />
+                            </GEBURTSDATUM>
+                            <AHV_NUMMER>001.00.000.000</AHV_NUMMER>
+                        </EX_PARTNER>
+                    </FZL_AUS_SCHEIDUNG>
+                </UEBERTRAGUNGSGRUND>
+                <FREIZUEGIGKEITSLEISTUNG>1000.00
+                </FREIZUEGIGKEITSLEISTUNG>
+                <ANTEIL_BVG>
+                    <BETRAG>0.00</BETRAG>
+                </ANTEIL_BVG>
+                <ERSTMALS_MITGETEILTE_FZL>
+                    <NA />
+                </ERSTMALS_MITGETEILTE_FZL>
+                <BEI_ALTER_50>
+                    <NA />
+                </BEI_ALTER_50>
+                <BEI_HEIRAT>
+                    <NA />
+                </BEI_HEIRAT>
+                <SCHEIDUNG datenVollstaendig="true">
+                    <NA />
+                </SCHEIDUNG>
+                <WEF datenVollstaendig="true">
+                    <NA />
+                </WEF>
+                <EINKAEUFE datenVollstaendig="true">
+                    <NA />
+                </EINKAEUFE>
+                <VERPFAENDUNGEN datenVollstaendig="true">
+                    <NA />
+                </VERPFAENDUNGEN>
+                <REFERENZ_ABSENDER>
+                    <ARBEITGEBER>Arbeitgeber</ARBEITGEBER>
+                </REFERENZ_ABSENDER>
+                <REFERENZ_EMPFAENGER>
+                    <KONTONUMMER>KontoNummer</KONTONUMMER>
+                </REFERENZ_EMPFAENGER>
+                <INKASSOHILFE_MELDUNGEN>
+                    <UNBEKANNT/>
+                </INKASSOHILFE_MELDUNGEN>
+            </LEISTUNGS_DATEN>
+            <zah:ZAHLUNG>
+                <zah:IBAN>CH00 1234 1ABC DEFG 1234 2</zah:IBAN>
+                <zah:BETRAG>1000.00</zah:BETRAG>
+                <zah:MITTEILUNG>12345678</zah:MITTEILUNG>
+            </zah:ZAHLUNG>
+        </FZL>
+    </FZL_MIT_EINZELZAHLUNG>
+</UEBERTRAGUNG>

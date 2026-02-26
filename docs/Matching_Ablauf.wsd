@@ -1,0 +1,19 @@
+@startuml
+' title Stellenwechsel mit Matching Service
+skinparam style strictuml
+hide footbox
+skinparam ParticipantPadding 35
+' skinparam responseMessageBelowArrow true
+' autonumber "<font color=gray>(0) "
+participant "Vorsorgeträger Austritt"
+box "EASX"
+  participant "Matching Service"
+end box
+participant "Vorsorgeträger Eintritt"
+
+"Vorsorgeträger Austritt" -> "Matching Service" : Austritt melden
+"Vorsorgeträger Eintritt" -> "Matching Service": Eintritt melden
+"Matching Service" -> "Vorsorgeträger Austritt": Eintritt gematched
+"Matching Service" --> "Vorsorgeträger Eintritt": Austritt gematched (optional)
+
+@enduml
