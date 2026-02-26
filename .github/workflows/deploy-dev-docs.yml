@@ -1,0 +1,41 @@
+name: Deploy Dev Docs
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        run: pip install mkdocs-material pyyaml
+
+      - name: Generate nav from .order files
+        run: python scripts/generate_nav.py
+
+      - name: Build site
+        run: mkdocs build --site-dir site/
+
+      - name: Copy assets & styles
+        run: |
+          cp -r assets site/
+          cp -r styles site/
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
+
+      - name: Deploy to Azure App Service
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: "easx-docs-dev"
+          package: ./site

@@ -1,0 +1,58 @@
+site_name: EAS Documentation - Dev
+site_url: hattps://github-easx-dev-docs-a9asdhg2bkhka5fn.switzerlandnorth-01.azurewebsites.net/
+repo_url: https://github.com/easx-ch/EASX
+repo_name: EASX
+
+use_directory_urls: true
+use_relative_links: true
+docs_dir: docs
+
+extra_dir:
+  - assets
+  - styles
+
+theme:
+  name: material
+  language: en
+
+  logo: assets/EASX_Logo_Dark.svg
+  favicon: assets/EASX_Logo_Light.svg
+
+  font:
+    text: Inter
+    code: Fira Code
+
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+  features:
+    - navigation.instant
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.action.edit
+    - content.action.view
+
+extra_css:
+  - styles/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/easx-community
