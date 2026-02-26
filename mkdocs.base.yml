@@ -49,6 +49,10 @@ theme:
     - content.action.edit
     - content.action.view
 
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+
 extra_css:
   - styles/extra.css
 
