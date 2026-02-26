@@ -1,0 +1,154 @@
+/* ================================
+   EAS Brand Variables
+================================ */
+
+:root {
+  --eas-primary: #323a8e;
+  --eas-accent: #5b65d6;
+  --eas-dark: #1f235f;
+}
+
+/* ================================
+   Header & Tabs
+================================ */
+
+.md-header {
+  background-color: var(--eas-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  padding: 15px;
+}
+
+.md-tabs {
+  background-color: var(--eas-primary);
+}
+
+/* ================================
+   Links
+================================ */
+
+.md-typeset a {
+  color: var(--eas-primary);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.md-typeset a:hover {
+  color: var(--eas-accent);
+}
+
+/* ================================
+   Headings
+================================ */
+
+.md-typeset h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--eas-primary);
+  border-bottom: 1px solid var(--eas-primary);
+  padding-bottom: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+.md-typeset h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--eas-dark);
+}
+
+.md-typeset h3 {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--eas-dark);
+}
+
+/* ================================
+   Sidebar Navigation
+================================ */
+
+.md-sidebar {
+  /*border-right: 2px solid rgba(50, 58, 142, 0.15);*/
+}
+
+/* Section titles (folder labels) */
+.md-nav__title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--eas-primary);
+}
+
+/* Navigation links */
+.md-nav__link {
+  font-size: 0.85rem;
+  border-radius: 6px;
+  padding: 0.2rem 0.4rem;
+  transition: all 0.2s ease;
+}
+
+/* Hover effect */
+.md-nav__link:hover {
+  background-color: rgba(50, 58, 142, 0.08);
+  color: var(--eas-primary);
+}
+
+/* Active page */
+.md-nav__link--active {
+  background-color: rgba(50, 58, 142, 0.12);
+  color: var(--eas-primary);
+  font-weight: 600;
+}
+
+/* ================================
+   Tables
+================================ */
+
+.md-typeset table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* ================================
+   Buttons & Code
+================================ */
+
+.md-button {
+  border-radius: 6px;
+}
+
+.md-typeset code {
+  font-size: 0.85rem;
+}
+
+/* ================================
+   Footer
+================================ */
+
+.md-footer,
+.md-footer-meta {
+  background-color: var(--eas-dark);
+}
+
+/* ================================
+   Dark Mode Overrides
+================================ */
+
+[data-md-color-scheme="slate"] .md-typeset h1 {
+  color: #8c95ff;
+  border-bottom: 2px solid #8c95ff;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h2 {
+  color: #aab2ff;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h3 {
+  color: #aab2ff;
+}
+
+[data-md-color-scheme="slate"] .md-nav__title {
+  color: #9ea6ff;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link--active {
+  background-color: rgba(91, 101, 214, 0.25);
+  color: #c7ccff;
+}
