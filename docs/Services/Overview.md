@@ -1,0 +1,5 @@
+The following services are currently available on the EASX platform:
+- [FZL Hub](./FZL-Hub/Overview.md) - **Exchange of insurer values:** Any pension fund can easily connect to the EASX REST APIs to send and receive the insurer values from or to any other connected pension fund.
+- [Matching](./Matching/Overview.md) - **Matching entries and exits:** This service allows the automatic detection and notification of matching exits and entries of insured of pension funds. This allows pension funds to proactively initiate the transfer of any leaving insureds values to a new pension fund.
+- [WAK](./Matching/Overview.md) - **Notify AEIS for Reinstatements:** This service allows pension funds to send the required Reinstatement Notification (WAK = Wiederanschlusskontrolle) to the Substitute Occupational Benefit Institution LOB (AEIS = Stiftung Auffangeinrichtung BVG) when an employer leaves a pension fund.
+- [Directory](./Directory/Overview.md) - **Directory of EASX participants:** This service provides information on all participants accessible using EASX and configuration details.
