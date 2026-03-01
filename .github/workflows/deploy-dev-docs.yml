@@ -10,29 +10,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout code
       - uses: actions/checkout@v4
 
+      # Install dependencies
       - name: Setup Python
         run: pip install mkdocs-material pyyaml
 
-      - name: Generate nav from .order files
+      # Generate nav from .order files
+      - name: Generate nav
         run: python scripts/generate_nav.py
 
+      # Build MkDocs site
       - name: Build site
         run: mkdocs build --site-dir site/
 
+      # Copy assets and styles to the site directory
       - name: Copy assets & styles
         run: |
           cp -r assets site/
           cp -r styles site/
 
-      - name: Azure Login
-        uses: azure/login@v1
+      # Deploy to Azure Static Web Apps
+      - name: Deploy to Azure Static Web App
+        uses: Azure/static-web-apps-deploy@v1
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-      - name: Deploy to Azure App Service
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: "github-easx-dev-docs"
-          package: ./site
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: "upload"
+          app_location: "/"
+          output_location: "site"
