@@ -2,7 +2,7 @@ site_name: EAS Documentation
 site_url: hattps://github-easx-dev-docs-a9asdhg2bkhka5fn.switzerlandnorth-01.azurewebsites.net/
 repo_url: https://github.com/easx-ch/EASX
 repo_name: esax-ch/EASX
-edit_uri: edit/dev/docs/
+edit_uri: edit/test/docs/
 
 use_directory_urls: true
 use_relative_links: true
@@ -59,7 +59,7 @@ extra_css:
   - styles/extra.css
 
 extra:
-  env_name: DEV
+  env_name: TEST
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/easx-community
