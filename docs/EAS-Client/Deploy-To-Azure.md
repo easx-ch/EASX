@@ -6,11 +6,20 @@ using Azure Key Vault to secure the sensitive configuration settings.
 2. You should have a Key Vault resource in your Azure cloud.
 3. You should have registered a subscription for an EASX participant and have all EAS configurations available (subscription key, private key, certificate).
 
-# Option A (Recommended): App Service Creation from Docker Hub
-This is the default and recommended option.
+# App Service Creation from Azure Registry
+1. Open next link https://portal.azure.com/#create/Microsoft.WebSite.
+2. Input your data to all required fields.
+    - Check `Docker Container` for `Publish` option;
+    - Check `Linux` for `Operating System` option;
+3. Go to next step;
+    - Select `Single Container` for `Options` option;
+    - Select `Azure Container Registry` for `Image Source` option;
+    - Select `eashub` for `Registry` option;
+    - Select `client1 for `Image` option;
+    - Select last version for `Tag` option;
+4. Finish configure your application and create a new Web App Service.
 
-No Azure Container Registry is required.
-
+# App Service Creation from Docker Hub
 1. Open next link https://portal.azure.com/#create/Microsoft.WebSite.
 2. Input your data to all required fields.
     - Check `Docker Container` for `Publish` option;
@@ -20,29 +29,6 @@ No Azure Container Registry is required.
     - Select `Docker Hub` for `Image Source` option;
     - Select `Public` for `Access Type` option;
     - Input `eas/client:version for `Image and Tag` option;
-4. Finish configure your application and create a new Web App Service.
-
-# Option B (Alternate): App Service Creation from Azure Registry
-This option is intended for advanced scenarios where you already manage your own Azure Container Registry.
-
-**Important notes:**
-- An Azure Container Registry must already exist before starting.
-- The documentation assumes:
-  - A registry named `eashub`
-  - An image named `client1`
-- If your registry or image names differ, replace them accordingly.
-
-**Steps:**
-1. Open next link https://portal.azure.com/#create/Microsoft.WebSite.
-2. Input your data to all required fields.
-    - Check `Docker Container` for `Publish` option;
-    - Check `Linux` for `Operating System` option;
-3. Go to next step;
-    - Select `Single Container` for `Options` option;
-    - Select `Azure Container Registry` for `Image Source` option;
-    - Select `eashub` for `Registry` option;
-    - Select `client1` for `Image` option;
-    - Select last version for `Tag` option;
 4. Finish configure your application and create a new Web App Service.
 
 # Identity creating and Key-Vault binding
@@ -65,21 +51,18 @@ This option is intended for advanced scenarios where you already manage your own
     - Name `EasxSubscriptionKey` and provide your key as a value;
     - [NOT REQUIRED] Name `Environment` and provide your environment as a value;
     - [NOT REQUIRED] Name `ParticipantId` and provide your participantId as a value;
-5. Click on `+ Generate/Import` and upload your private key and certificate:
+4. Click on `+ Generate/Import` and upload your private key and certificate:
     - Select `Certificate` for `Upload options` field;
     - Set a name `Certificate`;
     - Select a certificate from you local files;
     - Do the same steps for your private-key;
-6. Open and application, which you create.
-7. Open a `Settings>Configuration` tab on the left sidebar.
-8. For example, a complete reference would look like the following:
+5. Open and application, which you create.
+6. Open a `Settings>Configuration` tab on the left sidebar.
+7. For example, a complete reference would look like the following:
 ```@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/)```
-  
-   Alternatively:
+Alternatively:
 `@Microsoft.KeyVault(VaultName=myvault;SecretName=mysecret)`
-
-9. You should add next properties:
-
+7. You should add next properties:
     - `CertificateContent` should be bind to Key Vault;
     - `PrivateKeyContent` should be bind to Key Vault;
     - `EasxSubscriptionKey` should be bind to Key Vault;
