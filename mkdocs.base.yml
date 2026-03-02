@@ -1,7 +1,8 @@
-site_name: EAS Documentation - Dev
+site_name: EAS Documentation
 site_url: hattps://github-easx-dev-docs-a9asdhg2bkhka5fn.switzerlandnorth-01.azurewebsites.net/
 repo_url: https://github.com/easx-ch/EASX
-repo_name: EASX
+repo_name: esax-ch/EASX
+edit_uri: edit/dev/docs/
 
 use_directory_urls: true
 use_relative_links: true
@@ -13,6 +14,7 @@ extra_dir:
 
 theme:
   name: material
+  custom_dir: overrides
   language: en
 
   logo: assets/EASX_Logo_Dark.svg
@@ -57,6 +59,7 @@ extra_css:
   - styles/extra.css
 
 extra:
+  env_name: DEV
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/easx-community

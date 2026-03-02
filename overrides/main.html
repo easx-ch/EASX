@@ -1,0 +1,6 @@
+{% extends "base.html" %} {% block content %} {{ super() }} {% if
+config.extra.env_name %}
+<div class="env-ribbon {{ config.extra.env_class }}">
+  {{ config.extra.env_name }}
+</div>
+{% endif %} {% endblock %}
