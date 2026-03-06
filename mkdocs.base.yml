@@ -59,6 +59,8 @@ extra_css:
   - styles/extra.css
 
 extra:
+  env_name: PROD
+  show_ribbon: true
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/easx-community
