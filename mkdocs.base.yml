@@ -63,3 +63,6 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/easx-community
+  env_links:
+    prod: https://blue-pond-046ee8e03.2.azurestaticapps.net/
+    test: https://blue-ocean-021cbbc03.4.azurestaticapps.net/
