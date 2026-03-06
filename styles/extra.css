@@ -1,126 +1,361 @@
 /* ================================
+   Google Font Import — DM Sans + DM Mono
+================================ */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap");
+
+/* ================================
    EAS Brand Variables
 ================================ */
-
 :root {
   --eas-primary: #323a8e;
   --eas-accent: #5b65d6;
   --eas-dark: #1f235f;
+
+  /* Extended palette */
+  --eas-primary-light: #eceeff;
+  --eas-primary-mid: #c5c9f5;
+  --eas-border: #dde0f5;
+  --eas-surface: #f7f8fd;
+  --eas-text: #1a1d3a;
+  --eas-text-muted: #6b7099;
+
+  /* Semantic */
+  --eas-radius: 6px;
+  --eas-radius-lg: 10px;
+  --eas-shadow-sm: 0 1px 3px rgba(31, 35, 95, 0.08);
+  --eas-shadow-md: 0 4px 16px rgba(31, 35, 95, 0.12);
+  --eas-shadow-lg: 0 8px 32px rgba(31, 35, 95, 0.16);
+  --eas-transition: 0.18s ease;
 }
 
 /* ================================
-   Header & Tabs
+   Base Typography
 ================================ */
+body,
+.md-typeset {
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 0.78rem;
+  line-height: 1.65;
+  color: var(--eas-text);
+  -webkit-font-smoothing: antialiased;
+}
 
+/* ================================
+   Header
+================================ */
 .md-header {
   background-color: var(--eas-primary);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-  padding: 10px;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06),
+    var(--eas-shadow-md);
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.md-tabs {
-  background-color: var(--eas-primary);
+.md-header__inner {
+  gap: 0.5rem;
 }
 
-/* ================================
-   Links
-================================ */
-
-.md-typeset a {
-  color: var(--eas-primary);
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.md-typeset a:hover {
-  color: var(--eas-accent);
-}
-
-/* ================================
-   Headings
-================================ */
-
-.md-typeset h1 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--eas-primary);
-  border-bottom: 1px solid var(--eas-primary);
-  padding-bottom: 0.3rem;
-  margin-bottom: 1rem;
-}
-
-.md-typeset h2 {
-  font-size: 1rem;
+.md-header__title {
+  font-family: "DM Sans", sans-serif;
   font-weight: 600;
-  color: var(--eas-dark);
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
 }
 
-.md-typeset h3 {
-  font-size: 0.95rem;
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.md-header__button {
+  color: rgba(255, 255, 255, 0.85);
+  transition:
+    color var(--eas-transition),
+    opacity var(--eas-transition);
+}
+
+.md-header__button:hover {
+  color: #fff;
+  opacity: 1;
+}
+
+/* ================================
+   Tabs
+================================ */
+.md-tabs {
+  background-color: var(--eas-dark);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.md-tabs__link {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.8rem;
   font-weight: 500;
-  color: var(--eas-dark);
+  letter-spacing: 0.02em;
+  opacity: 0.75;
+  transition: opacity var(--eas-transition);
+}
+
+.md-tabs__link:hover,
+.md-tabs__link--active {
+  opacity: 1;
+}
+
+.md-tabs__link--active {
+  border-bottom: 2px solid var(--eas-accent);
 }
 
 /* ================================
    Sidebar Navigation
 ================================ */
-
-/* Section titles (folder labels) */
 .md-nav__title {
-  font-weight: 600;
-  font-size: 1rem;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--eas-text-muted);
+  padding: 0.6rem 0.75rem 0.3rem;
+}
+
+.md-nav__item .md-nav__link {
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--eas-text);
+  border-radius: var(--eas-radius);
+  padding: 0.28rem 0.6rem;
+  transition:
+    background var(--eas-transition),
+    color var(--eas-transition);
+  margin: 1px 0;
+}
+
+.md-nav__item .md-nav__link:hover {
+  background-color: var(--eas-primary-light);
   color: var(--eas-primary);
 }
 
-/* Navigation links */
-.md-nav__link {
+.md-nav__item .md-nav__link--active {
+  background-color: var(--eas-primary-light);
+  color: var(--eas-primary);
+  font-weight: 600;
+  border-left: 2px solid var(--eas-accent);
+  padding-left: calc(0.6rem - 2px);
+}
+
+.md-nav__item--section > .md-nav__link {
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--eas-dark);
+  letter-spacing: 0.01em;
+}
+
+/* ================================
+   Content Area
+================================ */
+.md-content {
+  background-color: #fff;
+}
+
+.md-content__inner {
+  padding: 1.5rem 1.75rem;
+  max-width: 860px;
+}
+
+/* ================================
+   Headings
+================================ */
+.md-typeset h1 {
+  font-family: "DM Sans", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--eas-dark);
+  border-bottom: 2px solid var(--eas-border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.md-typeset h2 {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--eas-primary);
+  margin-top: 2rem;
+  letter-spacing: -0.005em;
+}
+
+.md-typeset h3 {
+  font-family: "DM Sans", sans-serif;
   font-size: 0.85rem;
-  border-radius: 6px;
-  padding: 0.2rem 0.4rem;
-  transition: all 0.2s ease;
-}
-
-/* Hover effect */
-.md-nav__link:hover {
-  background-color: rgba(50, 58, 142, 0.08);
-  color: var(--eas-primary);
-}
-
-/* Active page */
-.md-nav__link--active {
-  background-color: rgba(50, 58, 142, 0.12);
-  color: var(--eas-primary);
   font-weight: 600;
+  color: var(--eas-text);
+}
+
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 600;
+  color: var(--eas-text-muted);
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  letter-spacing: 0.07em;
+}
+
+/* ================================
+   Links
+================================ */
+.md-typeset a {
+  color: var(--eas-accent);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition:
+    color var(--eas-transition),
+    border-color var(--eas-transition);
+}
+
+.md-typeset a:hover {
+  color: var(--eas-primary);
+  border-bottom-color: var(--eas-primary-mid);
+}
+
+/* ================================
+   Code
+================================ */
+.md-typeset code,
+.md-typeset pre {
+  font-family: "DM Mono", "Fira Code", monospace;
+  font-size: 0.75rem;
+}
+
+.md-typeset code {
+  background: var(--eas-primary-light);
+  color: var(--eas-dark);
+  border: 1px solid var(--eas-border);
+  border-radius: 4px;
+  padding: 0.1em 0.4em;
+}
+
+.md-typeset pre {
+  border-radius: var(--eas-radius-lg);
+  border: 1px solid var(--eas-border);
+  box-shadow: var(--eas-shadow-sm);
+}
+
+.md-typeset pre > code {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.highlight {
+  border-radius: var(--eas-radius-lg);
+  overflow: hidden;
 }
 
 /* ================================
    Tables
 ================================ */
-
 .md-typeset table {
-  border-radius: 8px;
+  border-radius: var(--eas-radius-lg);
   overflow: hidden;
+  border: 1px solid var(--eas-border);
+  box-shadow: var(--eas-shadow-sm);
+  font-size: 0.76rem;
+}
+
+.md-typeset table thead {
+  background-color: var(--eas-primary);
+}
+
+.md-typeset table thead th {
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: none;
+  padding: 0.7rem 1rem;
+}
+
+.md-typeset table tbody tr {
+  border-bottom: 1px solid var(--eas-border);
+  transition: background var(--eas-transition);
+}
+
+.md-typeset table tbody tr:hover {
+  background-color: var(--eas-surface);
+}
+
+.md-typeset table tbody td {
+  padding: 0.6rem 1rem;
+  border: none;
 }
 
 /* ================================
-   Buttons & Code
+   Admonitions
 ================================ */
-
-.md-button {
-  border-radius: 6px;
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: var(--eas-radius-lg);
+  border: 1px solid var(--eas-border);
+  box-shadow: var(--eas-shadow-sm);
+  font-size: 0.77rem;
 }
 
-.md-typeset code {
-  font-size: 0.85rem;
+.md-typeset .admonition-title,
+.md-typeset summary {
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+/* ================================
+   Buttons
+================================ */
+.md-button {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  border-radius: var(--eas-radius);
+  padding: 0.45rem 1rem;
+  transition: all var(--eas-transition);
+}
+
+.md-button--primary {
+  background-color: var(--eas-primary);
+  border-color: var(--eas-primary);
+}
+
+.md-button--primary:hover {
+  background-color: var(--eas-dark);
+  border-color: var(--eas-dark);
 }
 
 /* ================================
    Footer
 ================================ */
-
-.md-footer,
-.md-footer-meta {
+.md-footer {
   background-color: var(--eas-dark);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.md-footer-meta {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.md-footer__title {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.6;
 }
 
 /* ================================
@@ -128,44 +363,318 @@
 ================================ */
 .env-ribbon {
   position: fixed;
-  top: 25px;
-  right: -50px;
+  top: 28px;
+  right: -52px;
   width: 200px;
   text-align: center;
   color: white;
-  background-color: #d32f2f;
+  background-color: #c62828;
+  font-family: "DM Sans", sans-serif;
   font-weight: 700;
-  letter-spacing: 2px;
-  padding: 8px 0;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 7px 0;
   transform: rotate(45deg);
   z-index: 9999;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
   pointer-events: none;
-  font-size: 14px;
+}
+
+@media screen and (max-width: 76.1875em) {
+  .env-ribbon {
+    top: auto;
+    bottom: 20px;
+    right: -52px;
+    transform: rotate(315deg);
+    width: 160px;
+    font-size: 0.62rem;
+    padding: 5px 0;
+  }
 }
 
 /* ================================
-   Dark Mode Overrides
+   Environment Switcher
 ================================ */
+.env-switcher {
+  position: relative;
+  margin-left: auto;
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+}
+
+.env-switcher__trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.92);
+  border-radius: var(--eas-radius);
+  padding: 4px 9px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background var(--eas-transition),
+    border-color var(--eas-transition);
+}
+
+.env-switcher__trigger:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.32);
+  color: #fff;
+}
+
+.env-switcher__dot,
+.env-switcher__option-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: #aaa;
+}
+
+.env-dot--prod {
+  background: #43a047;
+  box-shadow: 0 0 5px rgba(67, 160, 71, 0.8);
+}
+
+.env-dot--dev {
+  background: #fb8c00;
+  box-shadow: 0 0 5px rgba(251, 140, 0, 0.8);
+}
+
+.env-dot--test {
+  background: #1e88e5;
+  box-shadow: 0 0 5px rgba(30, 136, 229, 0.8);
+}
+
+.env-switcher__caret {
+  opacity: 0.6;
+  transition: transform var(--eas-transition);
+  flex-shrink: 0;
+}
+
+.env-switcher__trigger[aria-expanded="true"] .env-switcher__caret {
+  transform: rotate(180deg);
+  opacity: 0.9;
+}
+
+.env-switcher__dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  left: auto;
+  min-width: 190px;
+  background: #fff;
+  border: 1px solid var(--eas-border);
+  border-radius: var(--eas-radius-lg);
+  box-shadow: var(--eas-shadow-lg);
+  overflow: hidden;
+  z-index: 10000;
+}
+
+.env-switcher__dropdown--open {
+  display: block;
+  animation: envDropIn 0.14s ease;
+}
+
+@keyframes envDropIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.env-switcher__dropdown-header {
+  padding: 9px 14px 7px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--eas-text-muted);
+  border-bottom: 1px solid var(--eas-border);
+  background: var(--eas-surface);
+}
+
+.env-switcher__option {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 14px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--eas-text);
+  text-decoration: none;
+  transition:
+    background var(--eas-transition),
+    color var(--eas-transition);
+  cursor: pointer;
+}
+
+.env-switcher__option:hover {
+  background: var(--eas-primary-light);
+  color: var(--eas-primary);
+  text-decoration: none;
+}
+
+.env-switcher__option--active {
+  background: var(--eas-primary-light);
+  color: var(--eas-primary);
+  font-weight: 600;
+}
+
+.env-switcher__option--active svg {
+  margin-left: auto;
+  color: var(--eas-accent);
+}
+
+/* ================================
+   Dark Mode
+================================ */
+[data-md-color-scheme="slate"] {
+  --eas-surface: #181c36;
+  --eas-text: #d8dcf5;
+  --eas-text-muted: #7880b0;
+  --eas-border: #2a2f5a;
+  --eas-primary-light: #1e2347;
+  --eas-primary-mid: #3a4080;
+}
+
+[data-md-color-scheme="slate"] .md-header {
+  background-color: var(--eas-dark);
+  border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+[data-md-color-scheme="slate"] .md-tabs {
+  background-color: #161932;
+}
+
+[data-md-color-scheme="slate"] .md-content {
+  background-color: #12152b;
+}
 
 [data-md-color-scheme="slate"] .md-typeset h1 {
-  color: #8c95ff;
-  border-bottom: 2px solid #8c95ff;
+  color: #c5caff;
+  border-bottom-color: var(--eas-border);
 }
 
 [data-md-color-scheme="slate"] .md-typeset h2 {
-  color: #aab2ff;
+  color: #8c95ff;
 }
 
 [data-md-color-scheme="slate"] .md-typeset h3 {
-  color: #aab2ff;
+  color: #a8b0e8;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h4,
+[data-md-color-scheme="slate"] .md-typeset h5,
+[data-md-color-scheme="slate"] .md-typeset h6 {
+  color: var(--eas-text-muted);
+}
+
+[data-md-color-scheme="slate"] .md-typeset a {
+  color: #8c95ff;
+}
+
+[data-md-color-scheme="slate"] .md-typeset a:hover {
+  color: #c5caff;
+  border-bottom-color: var(--eas-border);
+}
+
+[data-md-color-scheme="slate"] .md-typeset code {
+  background: var(--eas-primary-light);
+  color: #c5caff;
+  border-color: var(--eas-border);
+}
+
+[data-md-color-scheme="slate"] .md-typeset pre {
+  border-color: var(--eas-border);
+}
+
+[data-md-color-scheme="slate"] .md-typeset table {
+  border-color: var(--eas-border);
+}
+
+[data-md-color-scheme="slate"] .md-typeset table thead {
+  background-color: var(--eas-dark);
+}
+
+[data-md-color-scheme="slate"] .md-typeset table tbody tr {
+  border-bottom-color: var(--eas-border);
+}
+
+[data-md-color-scheme="slate"] .md-typeset table tbody tr:hover {
+  background-color: var(--eas-primary-light);
 }
 
 [data-md-color-scheme="slate"] .md-nav__title {
-  color: #9ea6ff;
+  color: var(--eas-text-muted);
 }
 
-[data-md-color-scheme="slate"] .md-nav__link--active {
-  background-color: rgba(91, 101, 214, 0.25);
-  color: #c7ccff;
+[data-md-color-scheme="slate"] .md-nav__item .md-nav__link {
+  color: var(--eas-text);
+}
+
+[data-md-color-scheme="slate"] .md-nav__item .md-nav__link:hover {
+  background-color: var(--eas-primary-light);
+  color: #8c95ff;
+}
+
+[data-md-color-scheme="slate"] .md-nav__item .md-nav__link--active {
+  background-color: var(--eas-primary-light);
+  color: #8c95ff;
+  border-left-color: var(--eas-accent);
+}
+
+[data-md-color-scheme="slate"] .md-nav__item--section > .md-nav__link {
+  color: #a8b0e8;
+}
+
+[data-md-color-scheme="slate"] .md-footer {
+  background-color: #0e1024;
+  border-top-color: var(--eas-border);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition,
+[data-md-color-scheme="slate"] .md-typeset details {
+  border-color: var(--eas-border);
+}
+
+[data-md-color-scheme="slate"] .env-switcher__dropdown {
+  background: #1a1e3a;
+  border-color: var(--eas-border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+[data-md-color-scheme="slate"] .env-switcher__dropdown-header {
+  background: #12152b;
+  color: var(--eas-text-muted);
+  border-bottom-color: var(--eas-border);
+}
+
+[data-md-color-scheme="slate"] .env-switcher__option {
+  color: var(--eas-text);
+}
+
+[data-md-color-scheme="slate"] .env-switcher__option:hover {
+  background: var(--eas-primary-light);
+  color: #8c95ff;
+}
+
+[data-md-color-scheme="slate"] .env-switcher__option--active {
+  background: var(--eas-primary-light);
+  color: #8c95ff;
 }

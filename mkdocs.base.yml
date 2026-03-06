@@ -1,5 +1,5 @@
 site_name: EAS Documentation
-site_url: hattps://github-easx-dev-docs-a9asdhg2bkhka5fn.switzerlandnorth-01.azurewebsites.net/
+site_url: https://witty-wave-0c12a8603.4.azurestaticapps.net/
 repo_url: https://github.com/easx-ch/EASX
 repo_name: esax-ch/EASX
 edit_uri: edit/dev/docs/
@@ -63,3 +63,7 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/easx-community
+  env_links:
+    prod: https://blue-pond-046ee8e03.2.azurestaticapps.net/
+    test: https://blue-ocean-021cbbc03.4.azurestaticapps.net/
+    dev: https://witty-wave-0c12a8603.4.azurestaticapps.net/
