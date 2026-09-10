@@ -50,6 +50,6 @@ Note: EAS Client can act as a local server, providing access to API and Web GUI.
 
 ## Prerequisites
 
-EAS Client does not require installation of any additional software to function. The application is built using .NET 8 in self-contained mode. So, all required libraries are already embedded into the executable.
+EAS Client does not require installation of any additional software to function. The application is built using .NET 10 in self-contained mode. So, all required libraries are already embedded into the executable.
 
-In case you are facing dependency-related issues while trying to launch EAS Client on Linux, you can install [.NET Runtime](https://dotnet.microsoft.com/download/dotnet/8.0). Though it won't be used by EAS Client, installing it will ensure that all dependencies are present.
+In case you are facing dependency-related issues while trying to launch EAS Client on Linux, you can install [.NET Runtime](https://dotnet.microsoft.com/download/dotnet/10.0). Though it won't be used by EAS Client, installing it will ensure that all dependencies are present.

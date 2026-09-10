@@ -1,5 +1,40 @@
 This document contains all changes made to EAS Client application.
 
+### 2.2.0 - Unreleased (Planned)
+
+#### New Services & Features
+
+- EAS Client can now submit requests for all participants, not only the one currently configured [#541]
+- EAS Client support for the next-generation signing/encryption protocol (SHA-256/RSA-PSS signatures, AES-GCM encryption) [#607]
+- EAS Client automatically detects a recipient's supported encryption level and encrypts/signs documents accordingly [#618]
+- Option to configure a persistent file system in the EAS Client Docker container for logs and private-key metadata [#536]
+- Health-check endpoint for monitoring EAS Client [#559]
+- Plugin system for EAS Client that runs inside Docker, including OS-specific installation and automatic deployment-script updates [#588, #589, #601]
+- Structured JSON logging for EAS Client in container environments, making logs easier to collect in log-aggregation tools [#592]
+- Clearer version-resolution rules for EAS Client plugins (registry authority and pin/seed precedence) [#616]
+- Server-side handling for BVG Exchange receipts even after a document has been revoked [#497]
+- Mock/test mode for EAS Client, allowing it to run against seeded in-memory data instead of the real API. Useful for demos and testing [#578, #584, #621]
+
+#### Changes
+
+- EAS Client updated to .NET 10, with refreshed .NET/npm package dependencies and the newest .NET Ubuntu base image [#544, #615, #619]
+- Server's Matching Service error responses now use the standard ErrorResponse format [#499]
+- Improved handling of Swagger/OpenAPI versioning on the Server [#501]
+- Server's Matching Service requests are now proxied to BVG Bridge Match [#533]
+- Azure infrastructure migrated to version 4.x of the Azure Functions runtime [#524]
+- Rekor MySQL database on Azure upgraded to a newer, supported version [#543]
+
+#### Bugs
+
+- Fixed: EAS Client plugin version numbers are now kept in sync between plugin.json and the code [#602]
+- Fixed: Namespace handling issues in XML documents on the Server [#537]
+- Fixed: Server support for documents using encodings other than UTF-8 (e.g. UTF-16) [#545]
+
+#### Security
+
+- Added vulnerability scanning and reporting to the Docker image build pipeline [#617]
+- Verified and tested Azure backup and restore process [#512]
+
 ### 2.1.0 - 2025-09-22
 
 - Added: Introduced **transparency logs** to increase end-to-end encryption security with tamper-evidence [#508]
@@ -34,45 +69,54 @@ This document contains all changes made to EAS Client application.
 ### 2.0.0 - 2024-10-25
 
 #### New Services & Features
+
 - Retrieve **FZL documents as PDF** [#355]
 - **WAK Service** allowing submitting reinstatement notifications (WAK = Wiederanschlusskontrolle) to AEIS [#351]
 - New **requiredVersion** parameter in client Hub API GET /in-documents/{id} to define FZL-Schema version needed [#437]
 - Auto-updating of validations and migration scripts, to improve future backward-compatibility [#444]
 
 #### Changes
+
 - Removed Matching Service logs [#460]
 - Reduced size of EAS Client Docker images [#453]
 
 #### Bugs
+
 - Removed multiple critical **vulnerabilities in Docker images** for EAS Client [#453]
 - Fixed: Featureflags are being retrieved from server in EASClient every time we get document [#446]
 - Fixed: TransferSenderId is empty in the Deleting document request
 - Fixed: response for creating entries\exits did not return ID [#452]
 
 ### 1.2.2 - 2024-04-11
-- Fixed: Error on deleting document with message when transferSenderId is not set. 
+
+- Fixed: Error on deleting document with message when transferSenderId is not set.
 
 ### 1.2.1 - 2024-03-05
+
 - Fixed: Not using the overriding participant configuration (Patch from 1.0.1)
 - Validating the content of the XML document during sending and receiving (Disabled by default)
 
 ### 1.2.0 - 2024-02-07
-- Revoke sent document functionality 
+
+- Revoke sent document functionality
 - fixed: Document not removed from cache when deleted
 
 ### 1.1.1 - 2024-01-25
+
 - Fixed: Log view not showing correctly (since V1.1.0)
 - Group EAS Client API in Hub, Directory and Matching
 - Retrieval of Matching Service Logs using GET HTTP command
 - Update to .net 8
 
 ### 1.1.0 - 2024-01-11
+
 - Encrypting receipts
 - Introduce a matching service
 - Set documenttype independent of FZL schema version to "http://exchange.aeis.ch/xsd/FZL"
 - Fix missing Data Migration tag
 
 ### 1.0.1 - 2024-02-28 (Release Patch)
+
 - Fixed: Not using the overriding participant configuration (certificate, private key)
 
 ### 1.0.0 - 2023-09-19
@@ -88,7 +132,7 @@ This document contains all changes made to EAS Client application.
 - Add new type of receipt "Read", which is sent automatically, when user tries to retrieve document by id;
 - Extend `DocumentMessageMinimalDto` with `State` property (`Sent`, `Read`, `Deleted`), `UpdatedOn` property `Datetime`;
 - Extend `DocumentMessage` with `State` property (`Sent`, `Read`, `Deleted`), `UpdatedOn` property `Datetime`;
-- Implement document storage service (cache service), add new  [EAS Client Settings](Settings.md) properties `DocumentCacheMode` (default `Disabled`) and SyncDocumentsIntervalMinutes (default `5`). 
+- Implement document storage service (cache service), add new [EAS Client Settings](Settings.md) properties `DocumentCacheMode` (default `Disabled`) and SyncDocumentsIntervalMinutes (default `5`).
 - Introduced searching incoming documents by XPath.
 
 ### 0.9.2 - 2022-12-19
@@ -121,7 +165,7 @@ This document contains all changes made to EAS Client application.
 
 ### 0.8.8.2 - 2022-03-17
 
-- Fix bug:  Anyone can send to BVG Exchange participant with wrong Sender UID;
+- Fix bug: Anyone can send to BVG Exchange participant with wrong Sender UID;
 
 ### 0.8.8.1 - 2022-03-10
 
@@ -147,7 +191,7 @@ This document contains all changes made to EAS Client application.
 
 ### 0.8.6 - 2021-11-24
 
-- WEB GUI: registration 
+- WEB GUI: registration
 
 ### 0.8.5 - 2021-08-18
 

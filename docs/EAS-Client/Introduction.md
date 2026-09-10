@@ -32,6 +32,10 @@ This is the primary approach to using of the EAS Client. This allows application
 
 In this mode the EAS Client provides a RESTful API and you can send simple, unencrypted HTTP requests to the local client URL. The EAS Client will validate the request and handle payload encryption, signature generation, attaching subscription headers and client certificate, specifying default UID and securly communicating with the EASX server. Upon receiving a response, it will validate the signature, decrypt the payload, and return the decrypted response.
 
+The client automatically negotiates document security with the sender and receiver capabilities published by the Directory Service. It uses the modern AES-GCM/RSA-PSS format when both participants support it and the receiver key is compatible; otherwise it falls back to the legacy format. Applications using the local API do not need to set `EncryptionType`, provide `EncryptionProps`, or generate signatures themselves.
+
+For details about automatic negotiation and the supported formats, see [Document Security](Document-Security.md).
+
 To ease the implementation into your application an OpenAPI Specification is available.
 
 ### 2. Client GUI
@@ -60,6 +64,10 @@ A full list of supported commands is documented under [EAS Client Commands](Comm
 You can automate these commands using batch/shell scripts configured to run periodically with Windows Task Scheduler or a cron job.
 
 > **Note**: Command-line scripts are only available when the EAS Client is deployed as an executable file, not as a Docker instance.
+
+## Monitoring
+
+When running in host mode, the EAS Client exposes health and metrics endpoints for integration with monitoring platforms, container orchestration, and uptime checks. See [Monitoring](Monitoring.md) for details.
 
 ## Caching and Filtering Incoming Documents
 

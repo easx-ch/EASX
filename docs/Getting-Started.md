@@ -14,11 +14,11 @@ To connect to EASX you will need to have an appropriate developer account and pr
 - You will find your new subscription on the [profile page](https://portal.easx.ch/profile), press the "Show" link next to the primary key and copy the key. You will need it later.
 - Generate an RSA key pair (3072-bit by default, 4096-bit optional) and store them as separate `.pem` files. We highly recommend using the EAS Client for key generation, as it allows specifying the key size. To generate keys, download EAS Client from the [developer portal](https://portal.easx.ch/) and run: `EASClient.exe --generatekeys eas --keysize 4096`
 - Before you can use your subscription to make calls to EASX, we will need to verify and configure it. There are two options to complete your registration:
-    1. Run your client locally using `EASClient --host` and navigate to [http://localhost:5000/register](http://localhost:5000/register) page. Input all required data and submit your registration using the UI;
-    2. Send an email to [support@easx.ch](mailto:support@easx.ch) with the following infos:
-        - username or email you used to sign up for a developer account
-        - UIDs ([Unternehmens-Identifikationsnummer](https://www.bfs.admin.ch/bfs/de/home/register/unternehmensregister/unternehmens-identifikationsnummer.html)) of the companies (participants) you need access for
-        - the public - _not private_ - key file (.pem) you generated in the previous step
+  1. Run your client locally using `EASClient --host` and navigate to [http://localhost:5000/register](http://localhost:5000/register) page. Input all required data and submit your registration using the UI;
+  2. Send an email to [support@easx.ch](mailto:support@easx.ch) with the following infos:
+     - username or email you used to sign up for a developer account
+     - UIDs ([Unternehmens-Identifikationsnummer](https://www.bfs.admin.ch/bfs/de/home/register/unternehmensregister/unternehmens-identifikationsnummer.html)) of the companies (participants) you need access for
+     - the public - _not private_ - key file (.pem) you generated in the previous step
 - We will verify your request, activate your subscription and get back to you providing a client certificate which you will need for connecting.
 
 # Installing and configuring EAS Client
@@ -43,17 +43,18 @@ Follow these steps to try it out:
     "CertificatePath": "<path to client certificate file>",
     "CertificatePassword": "<password for client certificate>",
     "HostUrl": "http://localhost:5000",
-    "Environment": "test"
+    "Environment": "test",
+    "PluginProfile": "standard"
   }
   ```
 
   Replacing the following values:
-
   - `<UID of default participant>`: The UID for the participant you will be retrieving or sending documents by default with on this EAS Client.
   - `<subscription key for EASX>`: The primary key for your subscription. Retrieve it from your [profile page](https://portal.easx.ch/profile).
   - `<path to private key>`: Path to the private key file (.pem) which you generated previously.
   - `<path to client certificate file>`: Path to the client certificate file which was provided to you by the EASX team.
   - `<password for client certificate>`: Password for the client certificate file configured above. If no password was provided for the certificate leave this empty.
+  - `PluginProfile`: Use `standard` for the usual FZL Hub, Matching, and WAK setup. If this setting is omitted in a fresh setup, `standard` is used automatically.
 
   Example:
 
@@ -65,7 +66,8 @@ Follow these steps to try it out:
     "CertificatePath": "easx-client.cer",
     "CertificatePassword": "",
     "HostUrl": "http://localhost:5000",
-    "Environment": "test"
+    "Environment": "test",
+    "PluginProfile": "standard"
   }​​​​​​​
   ```
 
@@ -123,16 +125,19 @@ The usual flow using the matching service looks like:
 ### Notifying a leaving insured
 
 To notify of a current insured leaving the pension fund use the following:
+
 - `/exits - POST`
 
 ### Notifying an entering insured
 
 To notify of a new insured entering the pension fund use the following:
+
 - `/entries - POST`
 
 ### Check matches for your exits
 
 To check for any matching entries for your exits:
+
 - `/matches/exits - GET`: To retrieve all matches for your exits
 - For each match (id) that was processed, remove them:
   - `/matches/exits/{id} - DELETE` : To remove the match from the matches list
@@ -144,3 +149,5 @@ To check for any matching entries for your exits:
 - [Configuring EAS Client](EAS-Client/Settings.md)
 - [Commands for EAS Client](EAS-Client/Commands.md)
 - [Introduction to the APIs](APIs.md)
+- [Monitoring](EAS-Client/Monitoring.md)
+- [Testing](EAS-Client/Testing.md)

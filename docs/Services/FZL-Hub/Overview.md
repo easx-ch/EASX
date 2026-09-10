@@ -15,6 +15,8 @@ Whenever a participant needs to send the affiliation data of an insured person t
 - `/out-documents - POST`: To upload the content and metadata of the document you want to send. This will return a document ID.
 - `/out-documents/{id} - PUT`: Sends the uploaded document to the receiver as defined in the metadata.
 
+When the EAS Client is used, the application sends the document as plain XML to the local API. The client performs signing, encryption, decryption, and signature verification automatically. The `EncryptionType`, `EncryptionProps`, and `Signature` fields are transport details and should normally be left for the client to populate.
+
 ### Checking Receipts
 
 To check if the documents you have sent have been received by the recipient:

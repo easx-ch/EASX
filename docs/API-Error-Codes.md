@@ -71,7 +71,7 @@ This error occurs when access to a subscription is denied. This may be caused by
 
 ### UnsupportedEncryptionType
 
-This error occurs when the encryption type is not supported. This may be caused by using an invalid encryption method.
+This error occurs when the encryption type is not supported. It may occur when an already secured `MetaPK-GCM` document is forwarded to a legacy participant, when such a pre-secured modern payload targets a receiver whose public key is too small for GCM, or when an unsupported encryption value is supplied. For an unsecured payload, the EAS Client selects `MetaPK`, `MetaPK-GCM`, or `None` automatically and falls back to `MetaPK` when a configured RSA key cannot support GCM.
 
 ### InvalidClientCertificate
 
